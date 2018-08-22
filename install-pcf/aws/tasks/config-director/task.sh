@@ -31,7 +31,6 @@ read -r -d '' director_configuration <<EOF
   "resurrector_enabled": true,
   "max_threads": 30,
   "database_type": "internal"
-  },
   "blobstore_type": "s3",
   "s3_blobstore_options": {
     "endpoint": "$S3_ENDPOINT",
