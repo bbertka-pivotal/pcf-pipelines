@@ -39,32 +39,8 @@ params:
   gcp_storage_secret_key:
   # aws specific
   S3_ENDPOINT:
-  # db credentials
-  db_app_usage_service_username:
-  db_app_usage_service_password:
-  db_autoscale_username:
-  db_autoscale_password:
-  db_diego_username:
-  db_diego_password:
-  db_notifications_username:
-  db_notifications_password:
-  db_routing_username:
-  db_routing_password:
-  db_uaa_username:
-  db_uaa_password:
-  db_ccdb_username:
-  db_ccdb_password:
+  # db credentials - Removed for POC
   mysql_monitor_recipient_email:
-  db_accountdb_username:
-  db_accountdb_password:
-  db_networkpolicyserverdb_username:
-  db_networkpolicyserverdb_password:
-  db_nfsvolumedb_username:
-  db_nfsvolumedb_password:
-  db_locket_username:
-  db_locket_password:
-  db_silk_username:
-  db_silk_password:
   routing_disable_http:
   ROUTING_CUSTOM_CA_CERTIFICATES:
   ROUTING_TLS_TERMINATION:

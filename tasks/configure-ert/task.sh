@@ -208,31 +208,6 @@ cf_properties=$(
     --arg system_domain "$SYSTEM_DOMAIN"\
     --arg apps_domain "$APPS_DOMAIN" \
     --arg mysql_monitor_recipient_email "$mysql_monitor_recipient_email" \
-    --arg db_host "$db_host" \
-    --arg db_locket_username "$db_locket_username" \
-    --arg db_locket_password "$db_locket_password" \
-    --arg db_silk_username "$db_silk_username" \
-    --arg db_silk_password "$db_silk_password" \
-    --arg db_app_usage_service_username "$db_app_usage_service_username" \
-    --arg db_app_usage_service_password "$db_app_usage_service_password" \
-    --arg db_autoscale_username "$db_autoscale_username" \
-    --arg db_autoscale_password "$db_autoscale_password" \
-    --arg db_diego_username "$db_diego_username" \
-    --arg db_diego_password "$db_diego_password" \
-    --arg db_notifications_username "$db_notifications_username" \
-    --arg db_notifications_password "$db_notifications_password" \
-    --arg db_routing_username "$db_routing_username" \
-    --arg db_routing_password "$db_routing_password" \
-    --arg db_uaa_username "$db_uaa_username" \
-    --arg db_uaa_password "$db_uaa_password" \
-    --arg db_ccdb_username "$db_ccdb_username" \
-    --arg db_ccdb_password "$db_ccdb_password" \
-    --arg db_accountdb_username "$db_accountdb_username" \
-    --arg db_accountdb_password "$db_accountdb_password" \
-    --arg db_networkpolicyserverdb_username "$db_networkpolicyserverdb_username" \
-    --arg db_networkpolicyserverdb_password "$db_networkpolicyserverdb_password" \
-    --arg db_nfsvolumedb_username "$db_nfsvolumedb_username" \
-    --arg db_nfsvolumedb_password "$db_nfsvolumedb_password" \
     --arg s3_endpoint "$S3_ENDPOINT" \
     --arg aws_access_key "${aws_access_key:-''}" \
     --arg aws_secret_key "${aws_secret_key:-''}" \
@@ -256,36 +231,8 @@ cf_properties=$(
       ".properties.container_networking_interface_plugin.silk.network_cidr": { "value": $container_networking_nw_cidr },
       ".properties.route_services.enable.ignore_ssl_cert_verification": { "value": true },
       ".properties.security_acknowledgement": { "value": $security_acknowledgement },
-      ".properties.system_database": { "value": "external" },
-      ".properties.system_database.external.port": { "value": "3306" },
-      ".properties.system_database.external.host": { "value": $db_host },
-      ".properties.system_database.external.app_usage_service_username": { "value": $db_app_usage_service_username },
-      ".properties.system_database.external.app_usage_service_password": { "value": { "secret": $db_app_usage_service_password } },
-      ".properties.system_database.external.autoscale_username": { "value": $db_autoscale_username },
-      ".properties.system_database.external.autoscale_password": { "value": { "secret": $db_autoscale_password } },
-      ".properties.system_database.external.diego_username": { "value": $db_diego_username },
-      ".properties.system_database.external.diego_password": { "value": { "secret": $db_diego_password } },
-      ".properties.system_database.external.notifications_username": { "value": $db_notifications_username },
-      ".properties.system_database.external.notifications_password": { "value": { "secret": $db_notifications_password } },
-      ".properties.system_database.external.routing_username": { "value": $db_routing_username },
-      ".properties.system_database.external.routing_password": { "value": { "secret": $db_routing_password } },
-      ".properties.system_database.external.ccdb_username": { "value": $db_ccdb_username },
-      ".properties.system_database.external.ccdb_password": { "value": { "secret": $db_ccdb_password } },
-      ".properties.system_database.external.account_username": { "value": $db_accountdb_username },
-      ".properties.system_database.external.account_password": { "value": { "secret": $db_accountdb_password } },
-      ".properties.system_database.external.networkpolicyserver_username": { "value": $db_networkpolicyserverdb_username },
-      ".properties.system_database.external.networkpolicyserver_password": { "value": { "secret": $db_networkpolicyserverdb_password } },
-      ".properties.system_database.external.nfsvolume_username": { "value": $db_nfsvolumedb_username },
-      ".properties.system_database.external.nfsvolume_password": { "value": { "secret": $db_nfsvolumedb_password } },
-      ".properties.system_database.external.locket_username": { "value": $db_locket_username },
-      ".properties.system_database.external.locket_password": { "value": { "secret": $db_locket_password } },
-      ".properties.system_database.external.silk_username": { "value": $db_silk_username },
-      ".properties.system_database.external.silk_password": { "value": { "secret": $db_silk_password } },
-      ".properties.uaa_database": { "value": "external" },
-      ".properties.uaa_database.external.host": { "value": $db_host },
-      ".properties.uaa_database.external.port": { "value": "3306" },
-      ".properties.uaa_database.external.uaa_username": { "value": $db_uaa_username },
-      ".properties.uaa_database.external.uaa_password": { "value": { "secret": $db_uaa_password } },
+      ".properties.system_database": { "value": "internal" },
+      ".properties.uaa_database": { "value": "internal" },
       ".properties.push_apps_manager_company_name": { "value": "pcf-\($iaas)" },
       ".cloud_controller.system_domain": { "value": $system_domain },
       ".cloud_controller.apps_domain": { "value": $apps_domain },
@@ -322,16 +269,7 @@ cf_properties=$(
 
     if $iaas == "aws" then
       {
-        ".properties.system_blobstore": { "value": "external" },
-        ".properties.system_blobstore.external.buildpacks_bucket": { "value": "\($terraform_prefix)-buildpacks" },
-        ".properties.system_blobstore.external.droplets_bucket": { "value": "\($terraform_prefix)-droplets" },
-        ".properties.system_blobstore.external.packages_bucket": { "value": "\($terraform_prefix)-packages" },
-        ".properties.system_blobstore.external.resources_bucket": { "value": "\($terraform_prefix)-resources" },
-        ".properties.system_blobstore.external.access_key": { "value": $aws_access_key },
-        ".properties.system_blobstore.external.secret_key": { "value": { "secret": $aws_secret_key } },
-        ".properties.system_blobstore.external.signature_version": { "value": "4" },
-        ".properties.system_blobstore.external.region": { "value": $aws_region },
-        ".properties.system_blobstore.external.endpoint": { "value": $s3_endpoint }
+        ".properties.system_blobstore": { "value": "internal" },
       }
     elif $iaas == "gcp" then
       {
