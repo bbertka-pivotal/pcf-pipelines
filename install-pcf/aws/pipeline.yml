@@ -89,8 +89,6 @@ jobs:
   - task: create-infrastructure
     file: pcf-pipelines/install-pcf/aws/tasks/prepare-aws/task.yml
     params:
-      DB_MASTER_USERNAME: {{db_master_username}}
-      DB_MASTER_PASSWORD: {{db_master_password}}
       TERRAFORM_PREFIX: {{terraform_prefix}}
       aws_access_key_id: {{aws_access_key_id}}
       aws_secret_access_key: {{aws_secret_access_key}}
@@ -118,9 +116,6 @@ jobs:
       dynamic_services_subnet_cidr_az2: {{dynamic_services_subnet_cidr_az2}}
       dynamic_services_subnet_cidr_az3: {{dynamic_services_subnet_cidr_az3}}
       infra_subnet_cidr_az1: {{infra_subnet_cidr_az1}}
-      rds_subnet_cidr_az1: {{rds_subnet_cidr_az1}}
-      rds_subnet_cidr_az2: {{rds_subnet_cidr_az2}}
-      rds_subnet_cidr_az3: {{rds_subnet_cidr_az3}}
       opsman_ip_az1: {{opsman_ip_az1}}
       nat_ip_az1: {{nat_ip_az1}}
       nat_ip_az2: {{nat_ip_az2}}

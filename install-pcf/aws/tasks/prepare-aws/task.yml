@@ -12,8 +12,6 @@ inputs:
 outputs:
   - name: terraform-state-output
 params:
-  DB_MASTER_USERNAME:
-  DB_MASTER_PASSWORD:
   TERRAFORM_PREFIX:
   aws_access_key_id:
   aws_secret_access_key:
@@ -41,9 +39,6 @@ params:
   dynamic_services_subnet_cidr_az2:
   dynamic_services_subnet_cidr_az3:
   infra_subnet_cidr_az1:
-  rds_subnet_cidr_az1:
-  rds_subnet_cidr_az2:
-  rds_subnet_cidr_az3:
   opsman_ip_az1:
   nat_ip_az1:
   nat_ip_az2:

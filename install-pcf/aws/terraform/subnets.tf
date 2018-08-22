@@ -26,17 +26,8 @@ resource "aws_subnet" "PcfVpcErtSubnet_az1" {
         Name = "${var.prefix}-PcfVpc Ert Subnet AZ1"
     }
 }
-# 2.2 RDS
-resource "aws_subnet" "PcfVpcRdsSubnet_az1" {
-    vpc_id = "${aws_vpc.PcfVpc.id}"
+# 2.2 RDS Subnets - Removed for POC
 
-    cidr_block = "${var.rds_subnet_cidr_az1}"
-    availability_zone = "${var.aws_az1}"
-
-    tags {
-        Name = "${var.prefix}-PcfVpc Rds Subnet AZ1"
-    }
-}
 # 2.3 Services
 resource "aws_subnet" "PcfVpcServicesSubnet_az1" {
     vpc_id = "${aws_vpc.PcfVpc.id}"
@@ -86,16 +77,6 @@ resource "aws_subnet" "PcfVpcErtSubnet_az2" {
         Name = "${var.prefix}-PcfVpc Ert Subnet AZ2"
     }
 }
-resource "aws_subnet" "PcfVpcRdsSubnet_az2" {
-    vpc_id = "${aws_vpc.PcfVpc.id}"
-
-    cidr_block = "${var.rds_subnet_cidr_az2}"
-    availability_zone = "${var.aws_az2}"
-
-    tags {
-        Name = "${var.prefix}-PcfVpc Rds Subnet AZ2"
-    }
-}
 resource "aws_subnet" "PcfVpcServicesSubnet_az2" {
     vpc_id = "${aws_vpc.PcfVpc.id}"
 
@@ -143,16 +124,6 @@ resource "aws_subnet" "PcfVpcErtSubnet_az3" {
     }
 }
 
-resource "aws_subnet" "PcfVpcRdsSubnet_az3" {
-    vpc_id = "${aws_vpc.PcfVpc.id}"
-
-    cidr_block = "${var.rds_subnet_cidr_az3}"
-    availability_zone = "${var.aws_az3}"
-
-    tags {
-        Name = "${var.prefix}-PcfVpc Rds Subnet AZ3"
-    }
-}
 resource "aws_subnet" "PcfVpcServicesSubnet_az3" {
     vpc_id = "${aws_vpc.PcfVpc.id}"
 

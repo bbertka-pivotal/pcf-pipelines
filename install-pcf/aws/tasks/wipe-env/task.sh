@@ -46,8 +46,6 @@ terraform destroy \
   -var "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" \
   -var "aws_region=${AWS_REGION}" \
   -var "opsman_ami=dontcare" \
-  -var "db_master_username=dontcare" \
-  -var "db_master_password=dontcare" \
   -var "prefix=dontcare" \
   -var "pcf_ert_domain=dontcare" \
   -var "system_domain=dontcare" \
@@ -77,9 +75,6 @@ terraform destroy \
   -var "dynamic_services_subnet_cidr_az2=0.0.0.0/0" \
   -var "dynamic_services_subnet_cidr_az3=0.0.0.0/0" \
   -var "infra_subnet_cidr_az1=0.0.0.0/0" \
-  -var "rds_subnet_cidr_az1=0.0.0.0/0" \
-  -var "rds_subnet_cidr_az2=0.0.0.0/0" \
-  -var "rds_subnet_cidr_az3=0.0.0.0/0" \
   -var "opsman_ip_az1=dontcare" \
   -var "nat_ip_az1=dontcare" \
   -var "nat_ip_az2=dontcare" \
