@@ -232,7 +232,6 @@ cf_properties=$(
       ".properties.route_services.enable.ignore_ssl_cert_verification": { "value": true },
       ".properties.security_acknowledgement": { "value": $security_acknowledgement },
       ".properties.system_database": { "value": "internal" },
-      ".properties.uaa_database": { "value": "internal" },
       ".properties.push_apps_manager_company_name": { "value": "pcf-\($iaas)" },
       ".cloud_controller.system_domain": { "value": $system_domain },
       ".cloud_controller.apps_domain": { "value": $apps_domain },
