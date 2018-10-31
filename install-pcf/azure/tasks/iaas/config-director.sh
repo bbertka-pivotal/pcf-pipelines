@@ -16,7 +16,7 @@ iaas_configuration=$(
     --arg client_secret "${AZURE_CLIENT_SECRET}" \
     --arg resource_group_name "${AZURE_TERRAFORM_PREFIX}" \
     --arg bosh_storage_account_name "${ENV_SHORT_NAME}root" \
-    --arg deployments_storage_account_name "*boshvms*" \
+    --arg deployments_storage_account_name "*bertkavms*" \
     --arg default_security_group "pcf-default-security-group" \
     --arg ssh_public_key "${PCF_SSH_KEY_PUB}" \
     --arg ssh_private_key "${PCF_SSH_KEY_PRIV}" \
